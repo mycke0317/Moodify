@@ -1,2 +1,63 @@
 # Moodify
-Mood-based music app
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moodify</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#100e20;color:white;
+ font-family:Arial,sans-serif;
+ padding:25px;
+}
+.app{max-width:430px;margin:auto}
+h1{font-size:36px;color:#b99aff}
+.sub{color:#aaa}
+.card{
+ background:#211d38;padding:22px;
+ border-radius:20px;margin:18px 0;
+}
+button{
+ border:0;border-radius:14px;padding:14px;
+ background:#8b5cf6;color:white;
+ font-size:16px;cursor:pointer;
+ margin:5px;
+}
+button:hover{background:#a78bfa}
+#result{font-size:19px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="app">
+<h1>🎧 Moodify</h1>
+<p class="sub">Your mood, your music.</p>
+
+<div class="card">
+<h2>How are you feeling today?</h2>
+<button onclick="recommend('행복')">😊 행복해</button>
+<button onclick="recommend('슬픔')">💙 슬퍼</button>
+<button onclick="recommend('피곤')">😴 피곤해</button>
+<button onclick="recommend('신남')">🔥 신나!</button>
+</div>
+
+<div class="card">
+<h2>Today's recommendation</h2>
+<div id="result">기분을 선택하면 음악을 추천해 줄게!</div>
+</div>
+</div>
+
+<script>
+function recommend(mood){
+ const songs={
+ '행복':'🎵 신나는 팝 음악을 들어봐!',
+ '슬픔':'🎵 잔잔한 감성 음악을 추천해!',
+ '피곤':'🎵 편안한 음악으로 쉬어 봐!',
+ '신남':'🎵 에너지 넘치는 댄스 음악!'
+ };
+ document.getElementById('result').innerText=songs[mood];
+}
+</script>
+</body>
+</html>
